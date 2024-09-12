@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
@@ -81,9 +82,17 @@ public class Player : MonoBehaviour
     {
         var input = value.Get<Vector2>();
 
+
         if (input.x > 0) // Right arrow key
         {
             transform.Rotate(Vector3.back, 90, Space.Self);
+
+            //var rotationSpeed = 0.1f;
+            //var targetRotation = Quaternion.Euler(90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            //var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90f, transform.rotation.eulerAngles.z);
+            //var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -90f);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 90);
         }
         else if (input.x < 0) // Left arrow key
         {

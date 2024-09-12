@@ -22,15 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "88c1fec9-5e20-4da4-9ee9-0c1a1add74b8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -143,10 +134,27 @@
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
+                }
+            ]
+        },
+        {
+            "name": "Game",
+            "id": "e430276f-e1c4-4663-b29a-843a1c98b305",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "7bdf555d-0960-46d1-9660-d3aebdf4cfe3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "b0ab7d37-c27a-47d4-acb3-074c47434995",
+                    "id": "e1f6c9b2-5a43-4412-b53a-b87e83b40e62",
                     "path": "<Keyboard>/{Cancel}",
                     "interactions": "",
                     "processors": "",
@@ -157,7 +165,7 @@
                 },
                 {
                     "name": "",
-                    "id": "457d49cd-8e5b-474d-adc6-2c08db4f1587",
+                    "id": "6e986264-fc38-4b66-9f7e-04a6d96d9c86",
                     "path": "<Keyboard>/#(P)",
                     "interactions": "",
                     "processors": "",

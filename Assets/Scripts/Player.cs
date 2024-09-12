@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,24 @@ using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
     private Camera mainCamera;
+
+    [SerializeField]
+    private ParticleSystem _particleSystem;
 
     private float laneGap = 1f;
     private Lane currentLane;
     private float width = 0;
     private float speed = 0.05f;
+    private Renderer[] _renderers;
+
+    public event EventHandler Collided;
 
     private void Start()
     {
+        _renderers = GetComponentsInChildren<Renderer>();
         currentLane = Lane.Middle;
+        mainCamera = FindObjectOfType<Camera>();
 
         var renderers = GetComponentsInChildren<Renderer>();
         var x1 = renderers.Select(r => r.bounds.min.x).Min();
@@ -41,11 +49,29 @@ public class Player : MonoBehaviour
             MoveLeft();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        OnCollision();
+    }
+
+    public void OnCollision()
+    {
+        speed = 0f;
+        _particleSystem.Play();
+        foreach (var renderer in _renderers)
+        {
+            renderer.enabled = false;
+        }
+        Collided?.Invoke(this, EventArgs.Empty);
+    }
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
-        mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + speed);
+        if (speed > 0f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + speed);
+        }
     }
 
     private void MoveLeft()

@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
         var x2 = renderers.Select(r => r.bounds.max.x).Max();
         width = x2 - x1;
     }
+    public void Stop()
+    {
+        speed = 0f;
+    }
 
     public virtual void OnMove(InputValue value)
     {
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
             MoveLeft();
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         OnCollision();
@@ -56,7 +61,7 @@ public class Player : MonoBehaviour
 
     public void OnCollision()
     {
-        speed = 0f;
+        Stop();
         _particleSystem.Play();
         foreach (var renderer in _renderers)
         {

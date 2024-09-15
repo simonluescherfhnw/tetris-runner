@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class Game : MonoBehaviour
 {
     private float _startTime;
+    private float? _endTime;
     private long _points;
     private long _gatesPassed;
     private float _timeScale;
@@ -14,6 +15,7 @@ public class Game : MonoBehaviour
     private Coin[] _coins;
     private Gate[] _gates;
     private Player _player;
+    private Finish _finish;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class Game : MonoBehaviour
         _coins = FindObjectsOfType<Coin>();
         _gates = FindObjectsOfType<Gate>();
         _player = FindObjectOfType<Player>();
+        _finish = FindObjectOfType<Finish>();
 
         foreach (var coin in _coins)
         {
@@ -34,6 +37,7 @@ public class Game : MonoBehaviour
         }
 
         _player.Collided += OnPlayerCollision;
+        _finish.Passed += OnPlayerFinished;
     }
 
     private void GatePassed(object sender, EventArgs e)
@@ -52,10 +56,16 @@ public class Game : MonoBehaviour
         _points += coin.Value;
     }
 
+    private void OnPlayerFinished(object sender, EventArgs e)
+    {
+        _player.Stop();
+        _endTime = Time.time;
+    }
+
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
-        GUILayout.Label("TIME: " + FormatLapTime(TimeSpan.FromSeconds(Time.time - _startTime)));
+        GUILayout.Label("TIME: " + FormatLapTime(TimeSpan.FromSeconds((_endTime ?? Time.time) - _startTime)));
         GUILayout.Label("POINTS: " + _points);
         GUILayout.EndArea();
     }

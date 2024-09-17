@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class OverlayUI : MonoBehaviour
+public class InGameMenuUI : MonoBehaviour
 {
     private const string QuitButtonName = "QuitButton";
     private const string ResumeButtonName = "ResumeButton";
@@ -21,23 +21,23 @@ public class OverlayUI : MonoBehaviour
         QuitButtonPressed?.Invoke(this, EventArgs.Empty);
     }
 
-    private UIDocument _overlayDocument;
+    private UIDocument _menuDocument;
 
     private void OnEnable()
     {
-        _overlayDocument = GetComponent<UIDocument>();
-        if (_overlayDocument == null)
+        _menuDocument = GetComponent<UIDocument>();
+        if (_menuDocument == null)
         {
             Debug.LogError("No UIDocument found on OverlayManager object! Disabling OverlayManager script.");
             enabled = false;
             return;
         }
-        _overlayDocument.rootVisualElement.Q<Button>(QuitButtonName).clicked += () =>
+        _menuDocument.rootVisualElement.Q<Button>(QuitButtonName).clicked += () =>
         {
             Debug.Log("Quit button clicked!");
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         };
-        _overlayDocument.rootVisualElement.Q<Button>(ResumeButtonName).clicked += () =>
+        _menuDocument.rootVisualElement.Q<Button>(ResumeButtonName).clicked += () =>
         {
             Debug.Log("Resume button clicked!");
             OnResume();

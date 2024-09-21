@@ -5158,6 +5158,7 @@ GameObject:
   - component: {fileID: 8601819592544949544}
   - component: {fileID: 8716026049013457749}
   - component: {fileID: 5441719955080604755}
+  - component: {fileID: 4539966600383556511}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5225,6 +5226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 2265147612825631601}
+  move: {fileID: 8300000, guid: 7d7328922d554ee4b9b5a5ae8ee50b09, type: 3}
+  rotate: {fileID: 8300000, guid: efd102169e59d6046a37292d71cd26fa, type: 3}
+  crash: {fileID: 8300000, guid: 27faf116dcbbca744a4ec9df3f418f1f, type: 3}
 --- !u!114 &5441719955080604755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5267,6 +5271,14 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!81 &4539966600383556511
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726620532634334725}
+  m_Enabled: 1
 --- !u!1 &9091631292945395702
 GameObject:
   m_ObjectHideFlags: 0

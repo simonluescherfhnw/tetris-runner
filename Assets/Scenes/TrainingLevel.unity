@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f75f102395d3e14baa7b7bd3ac6bf2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneUIManager: {fileID: 904203828}
 --- !u!4 &267714845
 Transform:
   m_ObjectHideFlags: 0
@@ -207,19 +208,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 454596, guid: 5e146687c6a67f2418267f6d12ad2e83, type: 3}
   m_PrefabInstance: {fileID: 1884886168}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &628960881 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7726620532634334725, guid: 93ac0408f629b134daa62ff7d5b1e0de, type: 3}
-  m_PrefabInstance: {fileID: 1751350592}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &628960886
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628960881}
-  m_Enabled: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayUILogic: {fileID: 9060072481456335142, guid: b24302eb332aaa24db35947b91165b94, type: 3}
+  endScreenUILogic: {fileID: 4953138900502566280, guid: c0e88e9e5c686e14cb5a31c84c08b602, type: 3}
   menuUILogic: {fileID: 3293497344703477296, guid: beba21611a3278e4db9d1a8747349575, type: 3}
 --- !u!4 &904203829
 Transform:
@@ -358,8 +347,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904203827}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.105493695, y: -2.0388124, z: 6.287437}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.105493665, y: -2.0388126, z: 6.2874374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -655,10 +644,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7726620532634334725, guid: 93ac0408f629b134daa62ff7d5b1e0de, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 628960886}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93ac0408f629b134daa62ff7d5b1e0de, type: 3}
 --- !u!1001 &1884886168
 PrefabInstance:

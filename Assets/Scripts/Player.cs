@@ -16,11 +16,24 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ParticleSystem _particleSystem;
 
+    [Space, Header("Audio")]
+    [SerializeField]
+    private AudioClip move;
+    [SerializeField]
+    private AudioClip rotate;
+    [SerializeField]
+    private AudioClip crash;
+
+
     private float laneGap = 1f;
     private Lane currentLane;
     private float width = 0;
     private float speed = 0.05f;
     private Renderer[] _renderers;
+
+    private AudioSource _moveAudioSource;
+    private AudioSource _rotateAudioSource;
+    private AudioSource _crashAudioSource;
 
     public event EventHandler Collided;
 
@@ -34,10 +47,45 @@ public class Player : MonoBehaviour
         var x1 = renderers.Select(r => r.bounds.min.x).Min();
         var x2 = renderers.Select(r => r.bounds.max.x).Max();
         width = x2 - x1;
+
+        _moveAudioSource = gameObject.AddComponent<AudioSource>();
+        _moveAudioSource.clip = move;
+        _moveAudioSource.loop = false;
+        _moveAudioSource.volume = 0.5f;
+        _moveAudioSource.Play();
+        _moveAudioSource.Pause();
+
+        _rotateAudioSource = gameObject.AddComponent<AudioSource>();
+        _rotateAudioSource.clip = rotate;
+        _rotateAudioSource.loop = false;
+        _rotateAudioSource.volume = 0.4f;
+        _rotateAudioSource.Play();
+        _rotateAudioSource.Pause();
+
+        _crashAudioSource = gameObject.AddComponent<AudioSource>();
+        _crashAudioSource.clip = crash;
+        _crashAudioSource.loop = false;
+        _crashAudioSource.volume = 0.4f;
+        _crashAudioSource.Play();
+        _crashAudioSource.Pause();
     }
     public void Stop()
     {
-        speed = 0f;
+        if (speed > 0f)
+        {
+            speed = 0f;
+            _particleSystem.Play();
+            _crashAudioSource?.Play();
+
+            foreach (var renderer in _renderers)
+            {
+                if (renderer.gameObject == _particleSystem.gameObject)
+                {
+                    continue;
+                }
+                renderer.gameObject.SetActive(false);
+            }
+        }
     }
 
     public virtual void OnMove(InputValue value)
@@ -52,6 +100,7 @@ public class Player : MonoBehaviour
         {
             MoveLeft();
         }
+        _moveAudioSource?.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,11 +111,7 @@ public class Player : MonoBehaviour
     public void OnCollision()
     {
         Stop();
-        _particleSystem.Play();
-        foreach (var renderer in _renderers)
-        {
-            renderer.enabled = false;
-        }
+
         Collided?.Invoke(this, EventArgs.Empty);
     }
 
@@ -129,6 +174,7 @@ public class Player : MonoBehaviour
         {
             transform.Rotate(Vector3.forward, 90, Space.Self);
         }
+        _rotateAudioSource?.Play();
     }
 
     enum Lane

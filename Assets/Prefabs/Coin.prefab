@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 4524633373382996589}
   _meshRenderer: {fileID: 2410686880045414220}
+  collection: {fileID: 8300000, guid: f1ff4dbbb2f1cf0468f597c572cfe4ec, type: 3}
   _value: 100
 --- !u!1 &3101328463551548275
 GameObject:

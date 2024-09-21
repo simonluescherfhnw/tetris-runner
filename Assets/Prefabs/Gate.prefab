@@ -5674,6 +5674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 1584877240344273792}
+  passedSound: {fileID: 8300000, guid: c4e31453d2c1c1f49b7513993afbaaf9, type: 3}
 --- !u!54 &4431476797095402986
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -25,9 +25,10 @@ public class Player : MonoBehaviour
     private AudioClip crash;
 
 
-    private float laneGap = 1f;
     private Lane currentLane;
-    private float width = 0;
+    private float laneGap = 0.25f;
+    private float laneWidth = 1.25f;
+
     private float speed = 0.05f;
     private float speedup = 0f;
 
@@ -44,11 +45,6 @@ public class Player : MonoBehaviour
         _renderers = GetComponentsInChildren<Renderer>();
         currentLane = Lane.Middle;
         mainCamera = FindObjectOfType<Camera>();
-
-        var renderers = GetComponentsInChildren<Renderer>();
-        var x1 = renderers.Select(r => r.bounds.min.x).Min();
-        var x2 = renderers.Select(r => r.bounds.max.x).Max();
-        width = x2 - x1;
 
         _moveAudioSource = gameObject.AddComponent<AudioSource>();
         _moveAudioSource.clip = move;
@@ -137,7 +133,7 @@ public class Player : MonoBehaviour
                 break;
             case Lane.Middle:
             case Lane.Right:
-                transform.position = new Vector3(currentPosition.x - laneGap - width, currentPosition.y, currentPosition.z);
+                transform.position = new Vector3(currentPosition.x - laneGap - laneWidth, currentPosition.y, currentPosition.z);
                 currentLane -= 1;
                 break;
         }
@@ -150,7 +146,7 @@ public class Player : MonoBehaviour
         {
             case Lane.Left:
             case Lane.Middle:
-                transform.position = new Vector3(currentPosition.x + laneGap + width, currentPosition.y, currentPosition.z);
+                transform.position = new Vector3(currentPosition.x + laneGap + laneWidth, currentPosition.y, currentPosition.z);
                 currentLane += 1;
                 break;
             case Lane.Right:

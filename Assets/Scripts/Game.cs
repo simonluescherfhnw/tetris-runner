@@ -26,6 +26,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         StartTime = Time.time;
+        Game.Finished = false;
         Time.timeScale = 1f;
         _coins = FindObjectsOfType<Coin>();
         _gates = FindObjectsOfType<Gate>();

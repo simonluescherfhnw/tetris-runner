@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     private Lane currentLane;
     private float width = 0;
     private float speed = 0.05f;
+    private float speedup = 0f;
+
     private Renderer[] _renderers;
 
     private AudioSource _moveAudioSource;
@@ -119,6 +121,8 @@ public class Player : MonoBehaviour
     {
         if (speed > 0f)
         {
+            speed += speedup;
+
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
             mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + speed);
         }
@@ -175,6 +179,11 @@ public class Player : MonoBehaviour
             transform.Rotate(Vector3.forward, 90, Space.Self);
         }
         _rotateAudioSource?.Play();
+    }
+
+    internal void SpeedUp()
+    {
+        speedup = 0.1f;
     }
 
     enum Lane

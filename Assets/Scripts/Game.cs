@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         StartTime = Time.time;
-        useGUILayout = true;
+        Time.timeScale = 1f;
         _coins = FindObjectsOfType<Coin>();
         _gates = FindObjectsOfType<Gate>();
         _player = FindObjectOfType<Player>();
@@ -44,6 +44,12 @@ public class Game : MonoBehaviour
 
         _player.Collided += OnPlayerCollision;
         _finish.Passed += OnPlayerFinished;
+        _finish.AnimationTriggerPassed += OnFinishAnimationPassed;
+    }
+
+    private void OnFinishAnimationPassed(object sender, EventArgs e)
+    {
+        _player.SpeedUp();
     }
 
     private void GatePassed(object sender, EventArgs e)
@@ -74,14 +80,6 @@ public class Game : MonoBehaviour
     private void ShowEndScreen()
     {
         _sceneUIManager.ShowEndScreen();
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(10, 10, 300, 300));
-        GUILayout.Label("TIME: " + TimeFormatted);
-        GUILayout.Label("POINTS: " + Points);
-        GUILayout.EndArea();
     }
 
     private static string FormatLapTime(TimeSpan t)

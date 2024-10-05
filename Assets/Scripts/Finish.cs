@@ -6,8 +6,13 @@ using UnityEngine;
 public class Finish : MonoBehaviour
 {
     public event EventHandler Passed;
+    public event EventHandler AnimationTriggerPassed;
 
-    private void OnTriggerEnter(Collider other)
+    internal void OnAnimationTrigger()
+    {
+        AnimationTriggerPassed?.Invoke(this, EventArgs.Empty);
+    }
+    internal void OnFinishTrigger()
     {
         Passed?.Invoke(this, EventArgs.Empty);
     }

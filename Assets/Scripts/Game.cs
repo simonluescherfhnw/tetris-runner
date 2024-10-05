@@ -60,7 +60,8 @@ public class Game : MonoBehaviour
     private void OnPlayerCollision(object sender, EventArgs e)
     {
         EndTime = Time.time;
-        ShowEndScreen();
+
+        Invoke("ShowEndScreen", 1000f);
     }
 
     private void CoinCollected(object sender, EventArgs e)
@@ -74,7 +75,7 @@ public class Game : MonoBehaviour
         _player.Stop();
         EndTime = Time.time;
         Finished = true;
-        ShowEndScreen();
+        //ShowEndScreen();
     }
 
     private void ShowEndScreen()

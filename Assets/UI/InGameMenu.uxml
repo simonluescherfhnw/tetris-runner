@@ -3,11 +3,11 @@
         <ui:VisualElement style="flex-grow: 1; flex-direction: column; align-self: auto; align-items: auto;" />
         <ui:VisualElement style="flex-grow: 1;">
             <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
-                <ui:Label tabindex="-1" text="GAME PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+                <ui:Label tabindex="-1" text="GAME PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 18px; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1;">
-                <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" />
-                <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" />
+                <ui:Button text="QUIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" style="background-color: rgb(255, 255, 255);" />
+                <ui:Button text="RESUME" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" style="background-color: rgb(255, 255, 255);" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1;" />

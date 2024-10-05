@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-self: auto; align-items: center; background-color: rgba(255, 255, 255, 0); -unity-background-image-tint-color: rgb(101, 101, 101);">
+    <ui:VisualElement style="flex-grow: 1; align-self: auto; align-items: center; background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement style="flex-grow: 1; flex-direction: column; align-self: auto; align-items: auto; background-color: rgba(255, 255, 255, 0);" />
         <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
-                <ui:Label tabindex="-1" text="GAME FINISHED" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MessageLabel" style="color: rgb(0, 0, 0); -unity-font-style: bold; font-size: 20px;" />
-                <ui:Label tabindex="-1" text="POINTS: 100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsLabel" style="color: rgb(0, 0, 0);" />
-                <ui:Label tabindex="-1" text="TIME: 00:00:00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" style="color: rgb(0, 0, 0);" />
+                <ui:Label tabindex="-1" text="GAME FINISHED" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MessageLabel" style="color: rgb(255, 255, 255); -unity-font-style: bold; font-size: 20px;" />
+                <ui:Label tabindex="-1" text="POINTS: 100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsLabel" style="color: rgb(255, 255, 255);" />
+                <ui:Label tabindex="-1" text="TIME: 00:00:00" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TimeLabel" style="color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1;">
                 <ui:Button text="QUIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" style="background-color: rgb(255, 255, 255);" />

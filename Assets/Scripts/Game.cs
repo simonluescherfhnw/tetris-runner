@@ -61,7 +61,7 @@ public class Game : MonoBehaviour
     {
         EndTime = Time.time;
 
-        Invoke("ShowEndScreen", 1000f);
+        Invoke("ShowEndScreen", 1f);
     }
 
     private void CoinCollected(object sender, EventArgs e)
@@ -75,7 +75,7 @@ public class Game : MonoBehaviour
         _player.Stop();
         EndTime = Time.time;
         Finished = true;
-        //ShowEndScreen();
+        Invoke("ShowEndScreen", 1f);
     }
 
     private void ShowEndScreen()

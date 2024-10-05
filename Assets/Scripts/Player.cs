@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
     private void MoveLeft()
     {
         var currentPosition = transform.position;
+
         switch (currentLane)
         {
             case Lane.Left:
@@ -142,6 +143,7 @@ public class Player : MonoBehaviour
     private void MoveRight()
     {
         var currentPosition = transform.position;
+
         switch (currentLane)
         {
             case Lane.Left:
@@ -162,13 +164,6 @@ public class Player : MonoBehaviour
         if (input.x > 0) // Right arrow key
         {
             transform.Rotate(Vector3.back, 90, Space.Self);
-
-            //var rotationSpeed = 0.1f;
-            //var targetRotation = Quaternion.Euler(90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-            //var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90f, transform.rotation.eulerAngles.z);
-            //var targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -90f);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 90);
         }
         else if (input.x < 0) // Left arrow key
         {
